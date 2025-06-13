@@ -1,0 +1,10 @@
+ - Thuật toán và logic tính toán:
+Để tính Fibonacci hiệu quả, cần dùng thuật toán tối ưu như memoization (O(n)), vòng lặp (O(n)) hoặc matrix fast exponentiation (O(log n)) nhằm tăng tốc và tránh stack overflow.
+Ngoài ra, nên giới hạn giá trị n để tránh tính toán vô nghĩa và sử dụng cache (ví dụ Redis) để lưu kết quả đã tính.
+ - Performance phía server:
+Tránh block event loop bằng cách xử lý nặng qua worker threads hoặc dùng cluster khai thác đa core. 
+Áp dụng rate limiter để hạn chế spam request và cấu hình container giới hạn RAM/CPU để bảo vệ hệ thống.
+ - Xử lý khi tải cao:
+Khi nhiều người dùng truy cập, cần scale ngang nhiều instance qua load balancer, thiết kế API stateless để dễ mở rộng, kết hợp cache layer (Redis/Memcached) và tích hợp hệ thống giám sát như Prometheus, Grafana để theo dõi tải.
+ - Code base và maintainability:
+Viết code clean, tách router, controller, service rõ ràng; hạn chế tạo object/array thừa trong vòng lặp, giảm log không cần thiết và tái sử dụng biến để tiết kiệm tài nguyên, giúp hệ thống chạy nhẹ và dễ bảo trì.
