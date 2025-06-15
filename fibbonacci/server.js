@@ -3,19 +3,31 @@ const app = express();
 const http = require('http');
 const server = http.createServer(app);
 
-function fibbonaci(n) {
-    if (n <= 1)
-        return n;
-    return fibbonaci(n - 1) + fibbonaci(n - 2);
+const fibCache = new Map();
+
+function fibonacci(n) {
+    if (fibCache.has(n)) {
+        return fibCache.get(n);
+    }
+
+    let a = 0, b = 1;
+    for (let i = 0; i < n; i++) {
+        [a, b] = [b, a + b];
+    }
+
+    fibCache.set(n, a);
+    return a;
 }
 
-app.get('/api/fibbonaci', (req, res) => {
+
+app.get('/api/fibonacci', (req, res) => {
     const n = parseInt(req.query.n);
-    if (isNaN(n)) {
-        return res.status(400).json({ error: 'n must be number' });
+    if (isNaN(n) || n < 0) {
+        return res.status(400).json({ error: 'n must be a non-negative number' });
     }
-    const rs = fibbonaci(n);
-    res.json({ input: n, fibbonaci: rs });
+
+    const result = fibonacci(n);
+    res.json({ input: n, fibonacci: result });
 });
 
 const PORT = process.env.PORT || 5000;
