@@ -6,3 +6,7 @@ Ngô Hồng Kỳ
 - Why might a failure in a discrete manufacturing system not be considered a failure in a continuous manufacturing system?
 - Why is it difficult to troubleshoot when many different errors manifest with the same symptoms?
 - Why are transient errors more difficult to detect and handle than deterministic errors?
+Trương Công Thành
+- Compare “fault masking” and “fault recovery”. In which situations should each technique be preferred?
+- Why is exception handling considered an effective strategy for detecting errors without affecting system performance?
+- Compare the advantages and disadvantages of heartbeat mechanism in ensuring availability compared to ping/echo and voting?
