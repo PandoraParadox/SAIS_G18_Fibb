@@ -2,3 +2,7 @@ Lê Hoà Hiệp
 - Nếu có nhiều request có số lớn như 100000 thì hệ thống có thể xử lí hết không, có trễ không.
 - Nếu máy chủ bị vấn đề phần cứng thì làm sao đảm bảo server vẫn hoạt động.
 - Bộ nhớ cache có bị ảnh hưởng khi lượng khi cập lớn k.
+Trương Công Thành
+- Compare “fault masking” and “fault recovery”. In which situations should each technique be preferred?
+- Why is exception handling considered an effective strategy for detecting errors without affecting system performance?
+- Compare the advantages and disadvantages of heartbeat mechanism in ensuring availability compared to ping/echo and voting?
